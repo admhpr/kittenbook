@@ -4,12 +4,12 @@
  * @return {string} The user's name
  */
 function getUserName() {
-    var userName = prompt('Hello, what\'s your name?');
+  var userName = prompt('Hello, what\'s your name?');
 
-    if (!userName) {
-        userName = prompt('You didn\'t enter a name. Really, what\'s your name?');
-    }
-    return userName;
+  if (!userName) {
+    userName = prompt('You didn\'t enter a name. Really, what\'s your name?');
+  }
+  return userName;
 }
 
 /**
@@ -19,7 +19,7 @@ function getUserName() {
  * @return {boolean}
  */
 function validatePhoneNumber(phoneNumber) {
-    return (/(?:1-)?\(?(\d{3})(?:-|\) ?)\d{3}-\d{4}/).test(phoneNumber);
+  return (/(?:1-)?\(?(\d{3})(?:-|\) ?)\d{3}-\d{4}/).test(phoneNumber);
 }
 
 /**
@@ -30,11 +30,11 @@ function validatePhoneNumber(phoneNumber) {
  * @return {string}
  */
 function getPhoneNumber(userName) {
-    var phoneNumber = prompt('Hello ' + userName + ', what\'s your phone number?');
-    if (!validatePhoneNumber(phoneNumber)) {
-        phoneNumber = prompt('Please enter a valid phone number.');
-    }
-    return phoneNumber;
+  var phoneNumber = prompt('Hello ' + userName +', what\'s your phone number?');
+  if (!validatePhoneNumber(phoneNumber)) {
+    phoneNumber = prompt('Please enter a valid phone number.');
+  }
+  return phoneNumber;
 }
 
 /**
@@ -44,18 +44,18 @@ function getPhoneNumber(userName) {
  * @return {string}
  */
 function getLocation(phoneNumber) {
-    // Create the phone number pattern.
-    var phoneNumberPattern = /(?:1-)?\(?(\d{3})[\-\)]\d{3}-\d{4}/;
-    // Get matches from phoneNumber
-    var phoneMatches = phoneNumberPattern.exec(phoneNumber);
-    var areaCodes, areaCode, locationName;
-    if (phoneMatches) {
-        areaCode = phoneMatches[1];
-        areaCodes = getAreaCodes();
-        locationName = areaCodes[areaCode];
-    }
+  // Create the phone number pattern.
+  var phoneNumberPattern = /(?:1-)?\(?(\d{3})[\-\)]\d{3}-\d{4}/;
+  // Get matches from phoneNumber
+  var phoneMatches = phoneNumberPattern.exec(phoneNumber);
+  var areaCodes, areaCode, locationName;
+  if (phoneMatches) {
+    areaCode = phoneMatches[1];
+    areaCodes = getAreaCodes();
+    locationName = areaCodes[areaCode];
+  }
 
-    // Look, it’s a ternary operator.
-    // Return the locationName if it exists, else return ‘somewhere’
-    return locationName ? locationName : 'somewhere';
+  // Look, it’s a ternary operator.
+  // Return the locationName if it exists, else return ‘somewhere’
+  return locationName ? locationName : 'somewhere';
 }

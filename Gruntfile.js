@@ -1,42 +1,41 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         concat: {
-            release: {
-                src: ['js/values.js', 'js/prompt.js', 'js/getImages.js', 'js/replaceImages.js', 'js/main.js'],
-                dest: 'release/main.js'
-            }
+          release: {
+            src: ['js/values.js', 'js/prompt.js', 'js/getImages.js', 'js/replaceImages.js', 'js/main.js'],
+            dest: 'release/main.js'
+          }
         },
         copy: {
-            release: {
-                src: 'manifest.json',
-                dest: 'release/manifest.json'
-            }
+          release: {
+            src: 'manifest.json',
+            dest: 'release/manifest.json'
+          }
         },
         jshint: {
-            options: {
-                jshintrc: '.jshintrc'
-            },
-            files: ['release/main.js']
+          options: {
+            jshintrc: '.jshintrc'
+          },
+          files: ['release/main.js']
         },
         jasmine: {
-            test: {
-                src: ['js/values.js', 'js/prompt.js', 'js/getImages.js',
-                    'js/replaceImages.js', 'js/main.js'
-                ],
-                options: {
-                    specs: 'test/*.js'
-                }
+          test: {
+            src: ['js/values.js', 'js/prompt.js', 'js/getImages.js',
+                  'js/replaceImages.js', 'js/main.js'],
+            options: {
+              specs: 'test/*.js'
             }
+          }
         },
         watch: {
-            files: ['<%= jshint.files %>', 'manifest.json'],
-            tasks: ['default']
+          files: ['<%= jshint.files %>', 'manifest.json'],
+          tasks: ['default']
         },
         jsdoc: {
-            dist: {
-                src: ['js/*.js'],
-                dest: 'doc'
-            }
+          dist: {
+            src: ['js/*.js'],
+            dest: 'doc'
+          }
         }
     });
 
