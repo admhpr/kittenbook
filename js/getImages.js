@@ -1,13 +1,9 @@
-
+/**
+ * Get a list of all images in the Facebook feed
+ * @method getImages
+ * @return {NodeList}
+ */
 function getImages() {
-var images = document.querySelectorAll('div.userContentWrapper img');
-
-for ( var i = 0; i < images.length; i++ ) {
-	console.log(images[i].src);
-
-	}
-
-	return images;
+    var images = document.querySelectorAll('div.userContentWrapper img');
+    return images;
 }
-
-var images = getImages();
